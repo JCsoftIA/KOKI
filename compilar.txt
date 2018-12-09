@@ -1,0 +1,9 @@
+npm audit --registry https://registry.npmjs.org/
+npm install npm -g
+    cambiar o agregar en package.json
+     "devDependencies": {
+        
+        "lodash-cli": "^4.17.5"
+    },
+      "browserslist": "node >= 10"
+npm config set loglevel warn
