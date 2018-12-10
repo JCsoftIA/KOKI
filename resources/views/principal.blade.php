@@ -19,6 +19,7 @@
     </head>
 
     <body>
+        <div id="vue">
         
         <!-- Navigation Bar-->
         <header id="topnav">
@@ -290,8 +291,9 @@
         </div>
         <!-- end wrapper -->
 
-    
-        <!-- fin del contenido app -->
+        </div>
+
+        <!-- fin del contenido vue -->
         
         <!-- Footer -->
         <footer class="footer">
