@@ -308,9 +308,9 @@
         <!-- End Footer -->
 
         <!-- App js -->
+        <script src="js/app.js"></script>
         <script src="js/plantilla.js"></script>
         <!-- <script src="js/popper.min.js"></script> -->
-        <script src="js/app.js"></script>
 
     </body>
 </html>
