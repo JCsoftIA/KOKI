@@ -10,10 +10,10 @@
                                 <a href="#"><i class="mdi mdi-briefcase"></i> <span> Almacen </span> </a>
                                 <ul class="submenu megamenu">
                                     <li @click="menu=1">
-                                        <a href="#"><i class="mdi mdi-clipboard"></i> Categorias </a>
+                                        <a href="javascript:void(0);"><i class="mdi mdi-clipboard"></i> Categorias </a>
                                     </li>
                                     <li @click="menu=2">
-                                        <a href="#"><i class="mdi mdi-clipboard"></i> Artilculos </a>
+                                        <a href="javascript:void(0);"><i class="mdi mdi-clipboard"></i> Artilculos </a>
                                     </li>
                                 </ul>
                             </li>
