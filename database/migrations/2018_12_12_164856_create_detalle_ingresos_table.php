@@ -15,7 +15,12 @@ class CreateDetalleIngresosTable extends Migration
     {
         Schema::create('detalle_ingresos', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('idingreso')->unsigned();
+            $table->foreign('idingreso')->references('id')->on('ingresos')->onDelete('cascade');
+            $table->integer('idproducto')->unsigned();
+            $table->foreign('idproducto')->references('id')->on('productos');
+            $table->integer('cantidad');
+            $table->decimal('precio', 11, 2);
         });
     }
 
