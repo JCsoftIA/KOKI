@@ -48,9 +48,9 @@
                                     <li @click="menu=7">
                                         <a href="#"><i class="mdi mdi-account-circle"></i> Usuarios </a>
                                     </li>
-                                    <li>
+                                    <li @click="menu=8">
                                         <a href="#"><i class="mdi  mdi-account-key"></i> Roles </a>
-                                    </li @click="menu=8">
+                                    </li >
                                 </ul>
                             </li>
 
