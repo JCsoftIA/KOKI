@@ -17,12 +17,18 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('Categoria', require('./components/Categoria.vue'));
-Vue.component('Producto', require('./components/Producto.vue'));
-Vue.component('Cliente', require('./components/Cliente.vue'));
-Vue.component('Proveedor', require('./components/Proveedor.vue'));
-Vue.component('Rol', require('./components/Rol.vue'));
-Vue.component('User', require('./components/User.vue'));
+Vue.component('categoria', require('./components/Categoria.vue'));
+Vue.component('producto', require('./components/Producto.vue'));
+Vue.component('cliente', require('./components/Cliente.vue'));
+Vue.component('proveedor', require('./components/Proveedor.vue'));
+Vue.component('rol', require('./components/Rol.vue'));
+Vue.component('user', require('./components/User.vue'));
+Vue.component('ingreso', require('./components/Ingreso.vue'));
+// Vue.component('venta', require('./components/Venta.vue'));
+Vue.component('dashboard', require('./components/Dashboard.vue'));
+// Vue.component('consultaingreso', require('./components/ConsultaIngreso.vue'));
+// Vue.component('consultaventa', require('./components/ConsultaVenta.vue'));
+// Vue.component('notification', require('./components/Notification.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
