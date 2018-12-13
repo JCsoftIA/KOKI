@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        $encrypted = Crypt::encrypt('ruth');
+        DB::table('users')->insert(array('id'=>'1','usuario'=>'ruth','password'=>'', 'condicion'=>'1', 'idrol'=>1, 'remember_token'=>'drs'));
     }
 
     /**
