@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model
+class Persona extends Model
 {
     protected $fillable =[
-        'idcategoria','codigo','precio_venta','stock','descripcion','condition'
+        'nombre','tipo_documento','num_documento','direccion','telefono','email'
     ];
 }
