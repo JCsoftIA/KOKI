@@ -18,6 +18,11 @@ window.Vue = require('vue');
  */
 
 Vue.component('Categoria', require('./components/Categoria.vue'));
+Vue.component('Producto', require('./components/Producto.vue'));
+Vue.component('Cliente', require('./components/Cliente.vue'));
+Vue.component('Proveedor', require('./components/Proveedor.vue'));
+Vue.component('Rol', require('./components/Rol.vue'));
+Vue.component('User', require('./components/User.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))

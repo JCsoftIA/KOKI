@@ -7,26 +7,25 @@
         <Categoria></Categoria>
     </template>
     <template v-if="menu==2">
-        <h1>Aqui debe ir el menu 2</h1>
-        <h2>Hagan esta parte llamas</h2>
+        <Producto></Producto>
     </template>
     <template v-if="menu==3">
         <h1>Aqui debe ir el menu 3</h1>
     </template>
     <template v-if="menu==4">
-        <h1>Aqui debe ir el menu 4</h1>
+        <Proveedor></Proveedor>
     </template>
     <template v-if="menu==5">
         <h1>Aqui debe ir el menu 5</h1>
     </template>
     <template v-if="menu==6">
-        <h1>Aqui debe ir el menu 6</h1>
+        <Cliente></Cliente>
     </template>
     <template v-if="menu==7">
-        <h1>Aqui debe ir el menu 7</h1>
+        <User></User>
     </template>
     <template v-if="menu==8">
-        <h1>Aqui debe ir el menu 8</h1>
+        <Rol></Rol>
     </template>
     <template v-if="menu==9">
         <h1>Aqui debe ir el menu 9</h1>

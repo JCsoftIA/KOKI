@@ -36244,7 +36244,6 @@ File: Core
 */
 /* =============
   == Core List==
-
    - Common
    - Helper classes
    - Extra
@@ -36252,7 +36251,6 @@ File: Core
    - Animation (Some loader)
    - Waves effect
    - Print (Invoice css)
-
 ============= */
 /* =============
    Common
@@ -38970,7 +38968,6 @@ File: Pages
 */
 /* =============
   == Pages List==
-
    - Calendar
    - Form Elements
    - Notification
@@ -38990,7 +38987,6 @@ File: Pages
    - Account pages
    - Inbox
    - Profile
-
 ============= */
 /* =============
    Calendar
@@ -42680,6 +42676,7 @@ File: Responsive
   }
   .navbar-nav li {
     display: inline-block;
+    line-height: 1px;
   }
   .dropdown-lg {
     width: 200px !important;
@@ -42782,36 +42779,3 @@ File: Responsive
   }
 }
 /*# sourceMappingURL=style.css.map */
-
-/* mis estilos 
- */
- .logo{
-  color: #ffffff !important;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 58px;
-  text-transform: uppercase;
-  float: left;
-}
-.navbar-toggler {
-  padding: .25rem .75rem !important;
-  font-size: 1.25rem;
-  line-height: 1;
-  background-color: #f0f0f0a6 !important;
-  border: 1px solid transparent !important;
-  border-radius: .35rem !important;
-  margin: 15px 1px;
-  
-}
-.navbar-toggler span {
-  height: 2px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  display: block;
-  margin-bottom: 5px;
-  -webkit-transition: -webkit-transform .5s ease;
-  transition: -webkit-transform .5s ease;
-  transition: transform .5s ease;
-  cursor: pointer;
-}

@@ -28,6 +28,4 @@ mix.styles([
    'resources/assets/plantilla/js/jquery.core.js',
    'resources/assets/plantilla/js/jquery.app.js',
    'resources/assets/plantilla/js/sweetalert2.all.js'
-], 'public/js/plantilla.js').
-js(['resources/assets/js/app.js'],'public/js/app.js').
-scripts(['resources/assets/plantilla/js/modernizr.min.js'],'public/js/modernizr.js');
+], 'public/js/plantilla.js').js(['resources/assets/js/app.js'],'public/js/app.js');

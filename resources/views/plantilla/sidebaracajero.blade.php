@@ -13,7 +13,7 @@
                                         <a href="javascript:void(0);"><i class="mdi mdi-clipboard"></i> Categorias </a>
                                     </li>
                                     <li @click="menu=2">
-                                        <a href="javascript:void(0);"><i class="mdi mdi-clipboard"></i> Artilculos </a>
+                                        <a href="javascript:void(0);"><i class="mdi mdi-clipboard"></i> Productos </a>
                                     </li>
                                 </ul>
                             </li>
