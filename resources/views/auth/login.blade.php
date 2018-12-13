@@ -34,8 +34,8 @@
                 <h2>Sistema de Ventas</h2>
                 <p>
                     <ul>
-                        <li class = " text-left list-unstyled">Eliana......Admin</li>
-                        <li class = " text-left list-unstyled">Ruth........Vendedor</li>
+                        <li class = " text-left list-unstyled">Ruth......Admin</li>
+                        <li class = " text-left list-unstyled">Eliana........Vendedor</li>
                         <li class = " text-left list-unstyled">Jean.........Almacenero</li>
                         <li class = " text-left list-unstyled">Mario.......Cajero</li>
                     </ul>

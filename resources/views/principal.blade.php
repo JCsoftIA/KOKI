@@ -83,33 +83,22 @@
                                 <!-- End Notification bar -->
                             </li>
 
-                            <li class="dropdown notification-list">
-                                <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
-                                   aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle nav-link nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle" class="img-avatar">
+                                    <span class="d-md-down-none">{{Auth::user()->usuario}} </span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header text-center">
+                                        <strong>Cuenta</strong>
+                                    </div>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-lock"></i> Cerrar sesión</a>
 
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-user m-r-5"></i> Profile
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-settings m-r-5"></i> Settings
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-lock m-r-5"></i> Lock screen
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ti-power-off m-r-5"></i> Logout
-                                    </a>
-
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                 </div>
                             </li>
 
@@ -123,7 +112,7 @@
             </div>
             <!-- end topbar-main -->
            
-                
+            
                 @if(Auth::check())
                     @if (Auth::user()->idrol == 1)
                         @include('plantilla.sidebaradministrador')
@@ -132,7 +121,7 @@
                     @elseif (Auth::user()->idrol == 3)
                         @include('plantilla.sidebaralmacenero')
                     @elseif (Auth::user()->idrol == 4)
-                        @include('plantilla.sidebarcajero')
+                        @include('plantilla.sidebaracajero')
                     @else
 
                     @endif

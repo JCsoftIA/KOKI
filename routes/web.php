@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::group(['middleware'=>['guest']],function(){
     Route::get('/','Auth\LoginController@showLoginForm');
     Route::post('/login', 'Auth\LoginController@login')->name('login');
@@ -82,7 +83,16 @@ Route::group(['middleware'=>['auth']],function(){
         Route::put('/user/desactivar', 'UserController@desactivar');
         Route::put('/user/activar', 'UserController@activar');
     });
+    Route::group(['middleware' => ['Cajero']], function () {
+        
+        
+        Route::get('/cliente', 'ClienteController@index');
+        Route::post('/cliente/registrar', 'ClienteController@store');
+        Route::put('/cliente/actualizar', 'ClienteController@update');
+
+      
+    });
 
 });
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
