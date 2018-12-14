@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
         $encrypted = Crypt::encrypt('ruth');
-        DB::table('users')->insert(array('id'=>'1','usuario'=>'ruth','password'=>'', 'condicion'=>'1', 'idrol'=>1, 'remember_token'=>'drs'));
+        DB::table('users')->insert(array('id'=>'1','usuario'=>'ruth','password'=>'$2y$10$SpKQa9GQGSw1Sp4GIdleperzNJbPMP3ZIWpg9dY.ZgvpjJ.G/3c0S', 'condicion'=>'1', 'idrol'=>1, 'remember_token'=>'drs'));
     }
 
     /**

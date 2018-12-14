@@ -14,7 +14,7 @@ class IngresoController extends Controller
 {
     public function index(Request $request)
     {
-        if (!$request->ajax()) return redirect('/');
+        // if (!$request->ajax()) return redirect('/');
 
         $buscar = $request->buscar;
         $criterio = $request->criterio;
@@ -25,7 +25,7 @@ class IngresoController extends Controller
             ->select('ingresos.id','ingresos.tipo_comprobante','ingresos.serie_comprobante',
             'ingresos.num_comprobante','ingresos.fecha_hora','ingresos.impuesto','ingresos.total',
             'ingresos.estado','personas.nombre','users.usuario')
-            ->orderBy('ingresos.id', 'desc')->paginate(3);
+            ->orderBy('ingresos.id', 'desc')->paginate(4);
         }
         else{
             $ingresos = Ingreso::join('personas','ingresos.idproveedor','=','personas.id')

@@ -146,7 +146,7 @@
                                 <div class="form-group">
                                     <label>Artículo <span style="color:red;" v-show="idproducto==0">(*Seleccione)</span></label>
                                     <div class="form-inline">
-                                        <input type="text" class="form-control" v-model="codigo" @keyup.enter="buscarproducto()" placeholder="Ingrese artículo">
+                                        <input type="text" class="form-control" v-model="codigo" @keyup.enter="buscarProducto()" placeholder="Ingrese artículo">
                                         <button @click="abrirModal()" class="btn btn-primary">...</button>
                                         <input type="text" readonly class="form-control" v-model="producto">
                                     </div>                                    
@@ -343,8 +343,8 @@
                                         <option value="descripcion">Descripción</option>
                                         <option value="codigo">Código</option>
                                         </select>
-                                        <input type="text" v-model="buscarA" @keyup.enter="listarproducto(buscarA,criterioA)" class="form-control" placeholder="Texto a buscar">
-                                        <button type="submit" @click="listarproducto(buscarA,criterioA)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                        <input type="text" v-model="buscarA" @keyup.enter="listarProducto(buscarA,criterioA)" class="form-control" placeholder="Texto a buscar">
+                                        <button type="submit" @click="listarProducto(buscarA,criterioA)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                                     </div>
                                 </div>
                             </div>
@@ -362,7 +362,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="producto in arrayproducto" :key="producto.id">
+                                        <tr v-for="producto in arrayProducto" :key="producto.id">
                                             <td>
                                                 <button type="button" @click="agregarDetalleModal(producto)" class="btn btn-success btn-sm">
                                                 <i class="icon-check"></i>
@@ -440,7 +440,7 @@
                 buscar : '',
                 criterioA:'nombre',
                 buscarA: '',
-                arrayproducto: [],
+                arrayProducto: [],
                 idproducto: 0,
                 codigo: '',
                 producto: '',
@@ -489,6 +489,8 @@
         methods : {
             listarIngreso (page,buscar,criterio){
                 let me=this;
+                console.log(this.ruta);
+                console.log(page);
                 var url= this.ruta + '/ingreso?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -498,6 +500,8 @@
                 .catch(function (error) {
                     console.log(error);
                 });
+                
+                
             },
             selectProveedor(search,loading){
                 let me=this;
@@ -519,17 +523,17 @@
                 me.loading = true;
                 me.idproveedor = val1.id;
             },
-            buscarproducto(){
+            buscarProducto(){
                 let me=this;
-                var url= this.ruta + '/producto/buscarproducto?filtro=' + me.codigo;
+                var url= this.ruta + '/producto/buscarProducto?filtro=' + me.codigo;
 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
-                    me.arrayproducto = respuesta.productos;
+                    me.arrayProducto = respuesta.productos;
 
-                    if (me.arrayproducto.length>0){
-                        me.producto=me.arrayproducto[0]['nombre'];
-                        me.idproducto=me.arrayproducto[0]['id'];
+                    if (me.arrayProducto.length>0){
+                        me.producto=me.arrayProducto[0]['nombre'];
+                        me.idproducto=me.arrayProducto[0]['id'];
                     }
                     else{
                         me.producto='No existe artículo';
@@ -610,12 +614,12 @@
                         }); 
                     }
             },
-            listarproducto (buscar,criterio){
+            listarProducto (buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/producto/listarproducto?buscar='+ buscar + '&criterio='+ criterio;
+                var url= this.ruta + '/producto/listarProducto?buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
-                    me.arrayproducto = respuesta.productos.data;
+                    me.arrayProducto = respuesta.productos.data;
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -638,6 +642,7 @@
                     'data': this.arrayDetalle
 
                 }).then(function (response) {
+
                     me.listado=1;
                     me.listarIngreso(1,'','num_comprobante');
                     me.idproveedor=0;
@@ -729,7 +734,7 @@
                 this.tituloModal='';
             }, 
             abrirModal(){               
-                this.arrayproducto=[];
+                this.arrayProducto=[];
                 this.modal = 1;
                 this.tituloModal = 'Seleccione uno o varios artículos';
             },

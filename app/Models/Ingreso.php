@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,11 +19,11 @@ class Ingreso extends Model
      ];
      public function usuario()
      {
-         return $this->belongsTo('App\User');
+         return $this->belongsTo('App\Models\User');
      }
      public function proveedor()
      {
-         return $this->belongsTo('App\Proveedor');
+         return $this->belongsTo('App\Models\Proveedor');
      }
  
  

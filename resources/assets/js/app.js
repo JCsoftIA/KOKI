@@ -24,11 +24,11 @@ Vue.component('proveedor', require('./components/Proveedor.vue'));
 Vue.component('rol', require('./components/Rol.vue'));
 Vue.component('user', require('./components/User.vue'));
 Vue.component('ingreso', require('./components/Ingreso.vue'));
-// Vue.component('venta', require('./components/Venta.vue'));
+Vue.component('venta', require('./components/Venta.vue'));
 Vue.component('dashboard', require('./components/Dashboard.vue'));
-// Vue.component('consultaingreso', require('./components/ConsultaIngreso.vue'));
-// Vue.component('consultaventa', require('./components/ConsultaVenta.vue'));
-// Vue.component('notification', require('./components/Notification.vue'));
+Vue.component('consultaingreso', require('./components/ConsultaIngreso.vue'));
+Vue.component('consultaventa', require('./components/ConsultaVenta.vue'));
+Vue.component('notification', require('./components/Notification.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))

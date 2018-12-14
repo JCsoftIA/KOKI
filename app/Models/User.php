@@ -30,11 +30,11 @@ class User extends Authenticatable
     ];
 
     public function rol(){
-        return $this->belongsTo('App\Rol');
+        return $this->belongsTo('App\Models\Rol');
     }
 
     public function persona(){
-        return $this->belongsTo('App\Persona');
+        return $this->belongsTo('App\Models\Persona');
     }
 
 
