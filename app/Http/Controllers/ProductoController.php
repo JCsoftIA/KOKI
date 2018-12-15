@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 class ProductoController extends Controller
-{public function index(Request $request)
+{
+    public function index(Request $request)
     {
-        // if (!$request->ajax()) return redirect('/');
+        if (!$request->ajax()) return redirect('/');
  
         $buscar = $request->buscar;
         $criterio = $request->criterio;
@@ -37,7 +38,15 @@ class ProductoController extends Controller
             'productos' => $productos
         ];
     }
-     
+    public function buscarProducto(Request $request){
+        if (!$request->ajax()) return redirect('/');
+
+        $filtro = $request->filtro;
+        $productos = Producto::where('codigo','=', $filtro)
+        ->select('id','nombre')->orderBy('nombre', 'asc')->take(1)->get();
+
+        return ['productos' => $productos];
+    }
     public function store(Request $request)
     {
         if (!$request->ajax()) return redirect('/');

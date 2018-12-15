@@ -28,7 +28,8 @@
     "imagemin": "^5.3.1",
     "install": "^0.12.2",
     "latest": "^0.2.0",
-    "vue-barcode": "^1.1.0"
+    "vue-barcode": "^1.1.0",
+    "vue-select": "^2.5.1"
   },
   "name": "koki",
   "description": "<p align=\"center\"><img src=\"https://laravel.com/assets/img/components/logo-laravel.svg\"></p>",

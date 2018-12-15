@@ -236,19 +236,16 @@
                 if(from < 1) {
                     from = 1;
                 }
-
                 var to = from + (this.offset * 2); 
                 if(to >= this.pagination.last_page){
                     to = this.pagination.last_page;
                 }  
-
                 var pagesArray = [];
                 while(from <= to) {
                     pagesArray.push(from);
                     from++;
                 }
                 return pagesArray;             
-
             }
         },
         methods : {
@@ -288,7 +285,6 @@
                 }
                 
                 let me = this;
-
                 axios.post('/user/registrar',{
                     'nombre': this.nombre,
                     'tipo_documento': this.tipo_documento,
@@ -299,7 +295,6 @@
                     'usuario': this.usuario,
                     'password': this.password,
                     'idrol' : this.idrol
-
                 }).then(function (response) {
                     me.cerrarModal();
                     me.listarPersona(1,'','nombre');
@@ -313,7 +308,6 @@
                 }
                 
                 let me = this;
-
                 axios.put('/user/actualizar',{
                     'nombre': this.nombre,
                     'tipo_documento': this.tipo_documento,
@@ -335,14 +329,11 @@
             validarPersona(){
                 this.errorPersona=0;
                 this.errorMostrarMsjPersona =[];
-
                 if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la persona no puede estar vacío.");
                 if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre de usuario no puede estar vacío.");
                 if (!this.password) this.errorMostrarMsjPersona.push("El password no puede estar vacío.");
                 if (this.idrol==0) this.errorMostrarMsjPersona.push("Debes seleccionar un rol para el usuario.");
-
                 if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
-
                 return this.errorPersona;
             },
             cerrarModal(){
@@ -358,7 +349,6 @@
                 this.password='';
                 this.idrol=0;
                 this.errorPersona=0;
-
             },
             abrirModal(modelo, accion, data = []){
                 this.selectRol();
@@ -420,7 +410,6 @@
                 }).then((result) => {
                 if (result.value) {
                     let me = this;
-
                     axios.put('/user/desactivar',{
                         'id': id
                     }).then(function (response) {
@@ -459,7 +448,6 @@
                 }).then((result) => {
                 if (result.value) {
                     let me = this;
-
                     axios.put('/user/activar',{
                         'id': id
                     }).then(function (response) {

@@ -82,25 +82,44 @@
                                 </div>
                                 <!-- End Notification bar -->
                             </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle nav-link nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle" class="img-avatar">
-                                    <span class="d-md-down-none">{{Auth::user()->usuario}} </span>
+                            {{-- pesta;a de login autor juan carlos --}}
+                            <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                                    <span class="d-md-down-none">{{
+                                        Auth::user()->usuario}} 
+                                    </span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-header text-center">
-                                        <strong>Cuenta</strong>
-                                    </div>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="ti-user m-r-5"></i> Profile
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="ti-settings m-r-5"></i> Settings
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="ti-lock m-r-5"></i> Lock screen
+                                    </a>
+
+                                    <!-- item-->
                                     <a class="dropdown-item" href="{{ route('logout') }}" 
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-lock"></i> Cerrar sesión</a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
+
                                 </div>
                             </li>
+                            {{-- fin del seccion login Pesta;a jc --}}
+                            
 
                         </ul>
                     </div>

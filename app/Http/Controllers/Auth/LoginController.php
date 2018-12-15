@@ -13,8 +13,9 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        $this->validateLogin($request);        
-
+        $this->validateLogin($request);   
+        echo '<script> console.log(request ->'.$request.');</script>';
+        // Auth::attempt(['id1' => 'admin']);
         if (Auth::attempt(['usuario' => $request->usuario,'password' => $request->password,'condicion'=>1])){
             return redirect()->route('main');
         }
