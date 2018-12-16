@@ -2,7 +2,9 @@
             <main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Escritorio</a></li>
+                <li class="breadcrumb-item">Home</li>
+                <li class="breadcrumb-item"><a href="#">Compras</a></li>
+                <li class="breadcrumb-item active">Ingresos</li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
@@ -135,7 +137,7 @@
                                 <div v-show="errorIngreso" class="form-group row div-error">
                                     <div class="text-center text-error">
                                         <div v-for="error in errorMostrarMsjIngreso" :key="error" v-text="error">
-
+                                            error
                                         </div>
                                     </div>
                                 </div>
@@ -144,9 +146,9 @@
                         <div class="form-group row border">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Artículo <span style="color:red;" v-show="idproducto==0">(*Seleccione)</span></label>
+                                    <label>Producto <span style="color:red;" v-show="idproducto==0">(*Seleccione)</span></label>
                                     <div class="form-inline">
-                                        <input type="text" class="form-control" v-model="codigo" @keyup.enter="buscarProducto()" placeholder="Ingrese artículo">
+                                        <input type="text" class="form-control" v-model="codigo" @keyup.enter="buscarProducto()" placeholder="Ingrese producto">
                                         <button @click="abrirModal()" class="btn btn-primary">...</button>
                                         <input type="text" readonly class="form-control" v-model="producto">
                                     </div>                                    
@@ -176,7 +178,7 @@
                                     <thead>
                                         <tr>
                                             <th>Opciones</th>
-                                            <th>Artículo</th>
+                                            <th>Producto</th>
                                             <th>Precio</th>
                                             <th>Cantidad</th>
                                             <th>Subtotal</th>
@@ -217,7 +219,7 @@
                                     <tbody v-else>
                                         <tr>
                                             <td colspan="5">
-                                                NO hay artículos agregados
+                                                NO hay productos agregados
                                             </td>
                                         </tr>
                                     </tbody>                                    
@@ -271,7 +273,7 @@
                                 <table class="table table-bordered table-striped table-sm">
                                     <thead>
                                         <tr>
-                                            <th>Artículo</th>
+                                            <th>Producto</th>
                                             <th>Precio</th>
                                             <th>Cantidad</th>
                                             <th>Subtotal</th>
@@ -305,7 +307,7 @@
                                     <tbody v-else>
                                         <tr>
                                             <td colspan="4">
-                                                NO hay artículos agregados
+                                                NO hay productos agregados
                                             </td>
                                         </tr>
                                     </tbody>                                    
@@ -531,7 +533,7 @@
                         me.idproducto=me.arrayProducto[0]['id'];
                     }
                     else{
-                        me.producto='No existe artículo';
+                        me.producto='No existe producto';
                         me.idproducto=0;
                     }
                 })
@@ -569,7 +571,7 @@
                         swal({
                             type: 'error',
                             title: 'Error...',
-                            text: 'Ese artículo ya se encuentra agregado!',
+                            text: 'Ese producto ya se encuentra agregado!',
                             })
                     }
                     else{
@@ -597,7 +599,7 @@
                         swal({
                             type: 'error',
                             title: 'Error...',
-                            text: 'Ese artículo ya se encuentra agregado!',
+                            text: 'Ese producto ya se encuentra agregado!',
                             })
                     }
                     else{
@@ -730,7 +732,7 @@
             abrirModal(){               
                 this.arrayProducto=[];
                 this.modal = 1;
-                this.tituloModal = 'Seleccione uno o varios artículos';
+                this.tituloModal = 'Seleccione uno o varios productos';
             },
             desactivarIngreso(id){
                swal({

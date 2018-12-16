@@ -8,7 +8,7 @@
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Roles
+                        <i class="fa fa-align-justify"></i> Roles \Role
                     </div>
                     <div class="card-body">
                         <div class="form-group row">

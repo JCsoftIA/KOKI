@@ -49861,10 +49861,12 @@ var staticRenderFns = [
       _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
       _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Almacen")])
       ]),
       _vm._v(" "),
-      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Dashboard")])
+      _c("li", { staticClass: "breadcrumb-item active" }, [
+        _vm._v("Categorias")
+      ])
     ])
   },
   function() {
@@ -49992,6 +49994,8 @@ exports.push([module.i, "\n.modal-content{\r\n        width: 100% !important;\r\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_barcode__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_barcode___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_barcode__);
+//
+//
 //
 //
 //
@@ -50305,7 +50309,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       swal({
-        title: 'Esta seguro de desactivar este artículo?',
+        title: 'Esta seguro de desactivar este producto?',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -50335,7 +50339,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this2 = this;
 
       swal({
-        title: 'Esta seguro de activar este artículo?',
+        title: 'Esta seguro de activar este producto?',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -50365,9 +50369,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.errorProducto = 0;
       this.errorMostrarMsjProducto = [];
       if (this.idcategoria == 0) this.errorMostrarMsjProducto.push("Seleccione una categoría.");
-      if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del artículo no puede estar vacío.");
-      if (!this.stock) this.errorMostrarMsjProducto.push("El stock del artículo debe ser un número y no puede estar vacío.");
-      if (!this.precio_venta) this.errorMostrarMsjProducto.push("El precio venta del artículo debe ser un número y no puede estar vacío.");
+      if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío.");
+      if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un número y no puede estar vacío.");
+      if (!this.precio_venta) this.errorMostrarMsjProducto.push("El precio venta del producto debe ser un número y no puede estar vacío.");
       if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
       return this.errorProducto;
     },
@@ -50393,7 +50397,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
               case 'registrar':
                 {
                   this.modal = 1;
-                  this.tituloModal = 'Registrar Artículo';
+                  this.tituloModal = 'Registrar Producto';
                   this.idcategoria = 0;
                   this.nombre_categoria = '';
                   this.codigo = '';
@@ -50409,7 +50413,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 {
                   //console.log(data);
                   this.modal = 1;
-                  this.tituloModal = 'Actualizar Artículo';
+                  this.tituloModal = 'Actualizar Producto';
                   this.tipoAccion = 2;
                   this.producto_id = data['id'];
                   this.idcategoria = data['idcategoria'];
@@ -53576,7 +53580,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Nombre de artículo"
+                            placeholder: "Nombre de producto"
                           },
                           domProps: { value: _vm.nombre },
                           on: {
@@ -53789,9 +53793,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
-      ])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Almacen")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Productos")])
     ])
   },
   function() {
@@ -53925,6 +53933,8 @@ exports.push([module.i, "\n.modal-content{\r\n        width: 100% !important;\r\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -54917,9 +54927,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
-      ])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Ventas")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Clientes")])
     ])
   },
   function() {
@@ -55051,6 +55065,8 @@ exports.push([module.i, "\n.modal-content{\r\n        width: 100% !important;\r\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -56150,8 +56166,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Compras")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [
+        _vm._v("Proveedores")
       ])
     ])
   },
@@ -56286,6 +56308,8 @@ exports.push([module.i, "\n.modal-content{\r\n        width: 100% !important;\r\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -56666,9 +56690,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
-      ])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Acceso")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Roles")])
     ])
   },
   function() {
@@ -56801,6 +56829,8 @@ exports.push([module.i, "\n.modal-content{\r\n        width: 100% !important;\r\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -58102,9 +58132,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
-      ])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Acceso")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Usuarios")])
     ])
   },
   function() {
@@ -58645,6 +58679,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -58777,7 +58813,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           me.producto = me.arrayProducto[0]['nombre'];
           me.idproducto = me.arrayProducto[0]['id'];
         } else {
-          me.producto = 'No existe artículo';
+          me.producto = 'No existe producto';
           me.idproducto = 0;
         }
       }).catch(function (error) {
@@ -58814,7 +58850,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           swal({
             type: 'error',
             title: 'Error...',
-            text: 'Ese artículo ya se encuentra agregado!'
+            text: 'Ese producto ya se encuentra agregado!'
           });
         } else {
           me.arrayDetalle.push({
@@ -58839,7 +58875,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         swal({
           type: 'error',
           title: 'Error...',
-          text: 'Ese artículo ya se encuentra agregado!'
+          text: 'Ese producto ya se encuentra agregado!'
         });
       } else {
         me.arrayDetalle.push({
@@ -58956,7 +58992,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     abrirModal: function abrirModal() {
       this.arrayProducto = [];
       this.modal = 1;
-      this.tituloModal = 'Seleccione uno o varios artículos';
+      this.tituloModal = 'Seleccione uno o varios productos';
     },
     desactivarIngreso: function desactivarIngreso(id) {
       var _this = this;
@@ -59530,10 +59566,18 @@ var render = function() {
                             "div",
                             { staticClass: "text-center text-error" },
                             _vm._l(_vm.errorMostrarMsjIngreso, function(error) {
-                              return _c("div", {
-                                key: error,
-                                domProps: { textContent: _vm._s(error) }
-                              })
+                              return _c(
+                                "div",
+                                {
+                                  key: error,
+                                  domProps: { textContent: _vm._s(error) }
+                                },
+                                [
+                                  _vm._v(
+                                    "\r\n                                            error\r\n                                        "
+                                  )
+                                ]
+                              )
                             })
                           )
                         ]
@@ -59545,7 +59589,7 @@ var render = function() {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", [
-                          _vm._v("Artículo "),
+                          _vm._v("Producto "),
                           _c(
                             "span",
                             {
@@ -59576,7 +59620,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese artículo"
+                              placeholder: "Ingrese producto"
                             },
                             domProps: { value: _vm.codigo },
                             on: {
@@ -60468,9 +60512,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
-      ])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Compras")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Ingresos")])
     ])
   },
   function() {
@@ -60509,7 +60557,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Artículo")]),
+        _c("th", [_vm._v("Producto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio")]),
         _vm._v(" "),
@@ -60550,7 +60598,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { attrs: { colspan: "5" } }, [
         _vm._v(
-          "\r\n                                                NO hay artículos agregados\r\n                                            "
+          "\r\n                                                NO hay productos agregados\r\n                                            "
         )
       ])
     ])
@@ -60561,7 +60609,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Artículo")]),
+        _c("th", [_vm._v("Producto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio")]),
         _vm._v(" "),
@@ -60602,7 +60650,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { attrs: { colspan: "4" } }, [
         _vm._v(
-          "\r\n                                                NO hay artículos agregados\r\n                                            "
+          "\r\n                                                NO hay productos agregados\r\n                                            "
         )
       ])
     ])
@@ -61159,6 +61207,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -61294,7 +61344,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           me.precio = me.arrayProducto[0]['precio_venta'];
           me.stock = me.arrayProducto[0]['stock'];
         } else {
-          me.producto = 'No existe artículo';
+          me.producto = 'No existe producto';
           me.idproducto = 0;
         }
       }).catch(function (error) {
@@ -61334,7 +61384,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           swal({
             type: 'error',
             title: 'Error...',
-            text: 'Ese artículo ya se encuentra agregado!'
+            text: 'Ese producto ya se encuentra agregado!'
           });
         } else {
           if (me.cantidad > me.stock) {
@@ -61371,7 +61421,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         swal({
           type: 'error',
           title: 'Error...',
-          text: 'Ese artículo ya se encuentra agregado!'
+          text: 'Ese producto ya se encuentra agregado!'
         });
       } else {
         me.arrayDetalle.push({
@@ -61502,7 +61552,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     abrirModal: function abrirModal() {
       this.arrayProducto = [];
       this.modal = 1;
-      this.tituloModal = 'Seleccione uno o varios artículos';
+      this.tituloModal = 'Seleccione uno o varios productos';
     },
     desactivarVenta: function desactivarVenta(id) {
       var _this = this;
@@ -62099,7 +62149,7 @@ var render = function() {
                     _c("div", { staticClass: "col-md-4" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", [
-                          _vm._v("Artículo "),
+                          _vm._v("Producto "),
                           _c(
                             "span",
                             {
@@ -62130,7 +62180,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese artículo"
+                              placeholder: "Ingrese producto"
                             },
                             domProps: { value: _vm.codigo },
                             on: {
@@ -63130,9 +63180,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
-      ])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Ventas")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Ventas")])
     ])
   },
   function() {
@@ -63171,7 +63225,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Opciones")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Artículo")]),
+        _c("th", [_vm._v("Producto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio")]),
         _vm._v(" "),
@@ -63214,7 +63268,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { attrs: { colspan: "6" } }, [
         _vm._v(
-          "\r\n                                                NO hay artículos agregados\r\n                                            "
+          "\r\n                                                NO hay productos agregados\r\n                                            "
         )
       ])
     ])
@@ -63225,7 +63279,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Artículo")]),
+        _c("th", [_vm._v("Producto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio")]),
         _vm._v(" "),
@@ -63268,7 +63322,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { attrs: { colspan: "5" } }, [
         _vm._v(
-          "\r\n                                                NO hay artículos agregados\r\n                                            "
+          "\r\n                                                NO hay productos agregados\r\n                                            "
         )
       ])
     ])
@@ -63358,6 +63412,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -63534,8 +63590,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("main", { staticClass: "main" }, [
       _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+        _vm._v(" "),
         _c("li", { staticClass: "breadcrumb-item" }, [
-          _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("Dashboard")
         ])
       ]),
       _vm._v(" "),
@@ -63695,6 +63757,8 @@ exports.push([module.i, "\n.modal-content{\r\n        width: 100% !important;\r\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
+//
+//
 //
 //
 //
@@ -64540,8 +64604,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Reportes")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [
+        _vm._v("Reporte de Ingresos")
       ])
     ])
   },
@@ -64588,7 +64658,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Artículo")]),
+        _c("th", [_vm._v("Producto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio")]),
         _vm._v(" "),
@@ -64629,7 +64699,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { attrs: { colspan: "4" } }, [
         _vm._v(
-          "\r\n                                                NO hay artículos agregados\r\n                                            "
+          "\r\n                                                NO hay productos agregados\r\n                                            "
         )
       ])
     ])
@@ -64743,6 +64813,8 @@ exports.push([module.i, "\n.modal-content{\r\n        width: 100% !important;\r\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
+//
+//
 //
 //
 //
@@ -65616,8 +65688,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
+      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
+      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
-        _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Reportes")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "breadcrumb-item active" }, [
+        _vm._v("Reporte de Ventas")
       ])
     ])
   },
@@ -65664,7 +65742,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Artículo")]),
+        _c("th", [_vm._v("Producto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio")]),
         _vm._v(" "),
@@ -65707,7 +65785,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { attrs: { colspan: "5" } }, [
         _vm._v(
-          "\r\n                                                NO hay artículos agregados\r\n                                            "
+          "\r\n                                                NO hay productos agregados\r\n                                            "
         )
       ])
     ])

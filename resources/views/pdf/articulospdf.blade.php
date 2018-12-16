@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de artículos</title>
+    <title>Reporte de productos</title>
     <style>
         body {
             margin: 0;
@@ -82,7 +82,7 @@
 </head>
 <body>
     <div>
-        <h3>Lista de Artículos <span class="derecha">{{now()}}</span></h3>
+        <h3>Lista de Productos <span class="derecha">{{now()}}</span></h3>
     </div>
     <div>
         <table class="table table-bordered table-striped table-sm">

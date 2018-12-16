@@ -2,7 +2,9 @@
             <main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Escritorio</a></li>
+                <li class="breadcrumb-item">Home</li>
+                <li class="breadcrumb-item"><a href="#">Reportes</a></li>
+                <li class="breadcrumb-item active">Reporte de Ingresos</li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
@@ -116,7 +118,7 @@
                                 <table class="table table-bordered table-striped table-sm">
                                     <thead>
                                         <tr>
-                                            <th>Artículo</th>
+                                            <th>Producto</th>
                                             <th>Precio</th>
                                             <th>Cantidad</th>
                                             <th>Subtotal</th>
@@ -150,7 +152,7 @@
                                     <tbody v-else>
                                         <tr>
                                             <td colspan="4">
-                                                NO hay artículos agregados
+                                                NO hay productos agregados
                                             </td>
                                         </tr>
                                     </tbody>                                    

@@ -2,7 +2,9 @@
             <main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Escritorio</a></li>
+                <li class="breadcrumb-item">Home</li>
+                <li class="breadcrumb-item"><a href="#">Almacen</a></li>
+                <li class="breadcrumb-item active">Productos</li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
@@ -124,7 +126,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de artículo">                                        
+                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de producto">                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -311,7 +313,7 @@
             },
             desactivarproducto(id){
                swal({
-                title: 'Esta seguro de desactivar este artículo?',
+                title: 'Esta seguro de desactivar este producto?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -350,7 +352,7 @@
             },
             activarproducto(id){
                swal({
-                title: 'Esta seguro de activar este artículo?',
+                title: 'Esta seguro de activar este producto?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -392,9 +394,9 @@
                 this.errorMostrarMsjProducto =[];
 
                 if (this.idcategoria==0) this.errorMostrarMsjProducto.push("Seleccione una categoría.");
-                if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del artículo no puede estar vacío.");
-                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del artículo debe ser un número y no puede estar vacío.");
-                if (!this.precio_venta) this.errorMostrarMsjProducto.push("El precio venta del artículo debe ser un número y no puede estar vacío.");
+                if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío.");
+                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un número y no puede estar vacío.");
+                if (!this.precio_venta) this.errorMostrarMsjProducto.push("El precio venta del producto debe ser un número y no puede estar vacío.");
 
                 if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
 
@@ -420,7 +422,7 @@
                             case 'registrar':
                             {
                                 this.modal = 1;
-                                this.tituloModal = 'Registrar Artículo';
+                                this.tituloModal = 'Registrar Producto';
                                 this.idcategoria=0;
                                 this.nombre_categoria='';
                                 this.codigo='';
@@ -435,7 +437,7 @@
                             {
                                 //console.log(data);
                                 this.modal=1;
-                                this.tituloModal='Actualizar Artículo';
+                                this.tituloModal='Actualizar Producto';
                                 this.tipoAccion=2;
                                 this.producto_id=data['id'];
                                 this.idcategoria=data['idcategoria'];
