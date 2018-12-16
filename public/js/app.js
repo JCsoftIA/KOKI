@@ -50167,6 +50167,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -50245,6 +50248,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (error) {
         console.log(error);
       });
+    },
+    cargarPdf: function cargarPdf() {
+      window.open('http://localhost:8000/producto/listarPdf', '_blank');
     },
     selectCategoria: function selectCategoria() {
       var me = this;
@@ -53089,6 +53095,23 @@ var render = function() {
             [
               _c("i", { staticClass: "icon-plus" }),
               _vm._v(" Nuevo\r\n                        ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.cargarPdf()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "icon-doc" }),
+              _vm._v(" Reporte\r\n                        ")
             ]
           )
         ]),
@@ -58681,6 +58704,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -60132,7 +60156,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -60155,7 +60180,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -60178,7 +60204,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -62577,7 +62604,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -62600,7 +62628,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -62624,7 +62653,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -62800,7 +62830,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -62823,7 +62854,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -62846,7 +62878,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -63512,7 +63545,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         me.varMesIngreso.push(x.mes);
         me.varTotalIngreso.push(x.total);
       });
-      me.varIngreso = document.getElementById('ingresos').getContext('2d');
+      me.varIngreso = document.getElementById('ingresos').getContext('2d'); // me.chartIngreso = new Chart(me.varIngreso, {
+      //     type: 'bar',
+      //     data: {
+      //         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      //         datasets: [{
+      //             label: '# of Votes',
+      //             data: [12, 19, 3, 5, 2, 3],
+      //             backgroundColor: [
+      //                 'rgba(255, 99, 132, 0.2)',
+      //                 'rgba(54, 162, 235, 0.2)',
+      //                 'rgba(255, 206, 86, 0.2)',
+      //                 'rgba(75, 192, 192, 0.2)',
+      //                 'rgba(153, 102, 255, 0.2)',
+      //                 'rgba(255, 159, 64, 0.2)'
+      //             ],
+      //             borderColor: [
+      //                 'rgba(255,99,132,1)',
+      //                 'rgba(54, 162, 235, 1)',
+      //                 'rgba(255, 206, 86, 1)',
+      //                 'rgba(75, 192, 192, 1)',
+      //                 'rgba(153, 102, 255, 1)',
+      //                 'rgba(255, 159, 64, 1)'
+      //             ],
+      //             borderWidth: 1
+      //         }]
+      //     },
+      //     options: {
+      //         scales: {
+      //             yAxes: [{
+      //                 ticks: {
+      //                     beginAtZero:true
+      //                 }
+      //             }]
+      //         }
+      //     }
+      // });
+
       me.charIngreso = new Chart(me.varIngreso, {
         type: 'bar',
         data: {
@@ -63597,7 +63666,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "breadcrumb-item active" }, [
-          _vm._v("Dashboard")
+          _vm._v("Escritorio")
         ])
       ]),
       _vm._v(" "),
@@ -64506,7 +64575,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -64529,7 +64599,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -64552,7 +64623,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -65590,7 +65662,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -65613,7 +65686,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [
@@ -65636,7 +65710,8 @@ var render = function() {
                                     "tr",
                                     {
                                       staticStyle: {
-                                        "background-color": "#CEECF5"
+                                        "background-color":
+                                          "rgb(0, 16, 28) !important"
                                       }
                                     },
                                     [

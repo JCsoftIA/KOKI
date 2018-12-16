@@ -1,56 +1,56 @@
 <template>
-<main class="main">
-    <!-- Breadcrumb -->
-    <ol class="breadcrumb">
-       <li class="breadcrumb-item">Home</li>
-                <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
-    </ol>
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">
-                
-            </div>
-            <div class="car-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h4>Ingresos</h4>
-                            </div>
-                            <div class="card-content">
-                                <div class="ct-chart">
-                                    <canvas id="ingresos">                                                
-                                    </canvas>
+    <main class="main">
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item"><a href="#">Admin</a></li>
+            <li class="breadcrumb-item active">Escritorio</li>
+        </ol>
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    
+                </div>
+                <div class="car-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-chart">
+                                <div class="card-header">
+                                    <h4>Ingresos</h4>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <p>Compras de los últimos meses.</p>
+                                <div class="card-content">
+                                    <div class="ct-chart">
+                                        <canvas id="ingresos">                                                
+                                        </canvas>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <p>Compras de los últimos meses.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card card-chart">
-                            <div class="card-header">
-                                <h4>Ventas</h4>
-                            </div>
-                            <div class="card-content">
-                                <div class="ct-chart">
-                                    <canvas id="ventas">                                                
-                                    </canvas>
+                        <div class="col-md-6">
+                            <div class="card card-chart">
+                                <div class="card-header">
+                                    <h4>Ventas</h4>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <p>Ventas de los últimos meses.</p>
+                                <div class="card-content">
+                                    <div class="ct-chart">
+                                        <canvas id="ventas">                                                
+                                        </canvas>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <p>Ventas de los últimos meses.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</main>
+    </main>
 </template>
 <script>
     export default {
@@ -103,7 +103,42 @@
                     me.varTotalIngreso.push(x.total);
                 });
                 me.varIngreso=document.getElementById('ingresos').getContext('2d');
-
+                // me.chartIngreso = new Chart(me.varIngreso, {
+                //     type: 'bar',
+                //     data: {
+                //         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                //         datasets: [{
+                //             label: '# of Votes',
+                //             data: [12, 19, 3, 5, 2, 3],
+                //             backgroundColor: [
+                //                 'rgba(255, 99, 132, 0.2)',
+                //                 'rgba(54, 162, 235, 0.2)',
+                //                 'rgba(255, 206, 86, 0.2)',
+                //                 'rgba(75, 192, 192, 0.2)',
+                //                 'rgba(153, 102, 255, 0.2)',
+                //                 'rgba(255, 159, 64, 0.2)'
+                //             ],
+                //             borderColor: [
+                //                 'rgba(255,99,132,1)',
+                //                 'rgba(54, 162, 235, 1)',
+                //                 'rgba(255, 206, 86, 1)',
+                //                 'rgba(75, 192, 192, 1)',
+                //                 'rgba(153, 102, 255, 1)',
+                //                 'rgba(255, 159, 64, 1)'
+                //             ],
+                //             borderWidth: 1
+                //         }]
+                //     },
+                //     options: {
+                //         scales: {
+                //             yAxes: [{
+                //                 ticks: {
+                //                     beginAtZero:true
+                //                 }
+                //             }]
+                //         }
+                //     }
+                // });
                 me.charIngreso = new Chart(me.varIngreso, {
                     type: 'bar',
                     data: {

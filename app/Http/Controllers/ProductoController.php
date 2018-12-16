@@ -89,6 +89,7 @@ class ProductoController extends Controller
     }
 
     public function listarPdf(){
+        
         $productos = Producto::join('categorias','productos.idcategoria','=','categorias.id')
             ->select('productos.id','productos.idcategoria','productos.codigo','productos.nombre',
             'categorias.nombre as nombre_categoria','productos.precio_venta','productos.stock',

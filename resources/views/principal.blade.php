@@ -13,9 +13,9 @@
         <link rel="shortcut icon" href="assets/images/logo-sm.png">
         <!-- App css -->
         <link rel="stylesheet" href="css/plantilla.css">
-        <script src="js/modernizr.js"></script>
-        
-
+        {{-- <script src="js/modernizr.js"></script> --}}
+        <link rel="stylesheet" href="">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     </head>
 
     <body>

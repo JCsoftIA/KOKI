@@ -136,15 +136,15 @@
                                                 {{detalle.precio*detalle.cantidad}}
                                             </td>
                                         </tr>
-                                        <tr style="background-color: #CEECF5;">
+                                        <tr style="background-color: rgb(0, 16, 28) !important;">
                                             <td colspan="3" align="right"><strong>Total Parcial:</strong></td>
                                             <td>$ {{totalParcial=(total-totalImpuesto).toFixed(2)}}</td>
                                         </tr>
-                                        <tr style="background-color: #CEECF5;">
+                                        <tr style="background-color: rgb(0, 16, 28) !important;">
                                             <td colspan="3" align="right"><strong>Total Impuesto:</strong></td>
                                             <td>$ {{totalImpuesto=((total*impuesto)).toFixed(2)}}</td>
                                         </tr>
-                                        <tr style="background-color: #CEECF5;">
+                                        <tr style="background-color: rgb(0, 16, 28) !important;">
                                             <td colspan="3" align="right"><strong>Total Neto:</strong></td>
                                             <td>$ {{total}}</td>
                                         </tr>

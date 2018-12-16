@@ -27,5 +27,6 @@ mix.styles([
    'resources/assets/plantilla/js/jquery.slimscroll.js',
    'resources/assets/plantilla/js/jquery.core.js',
    'resources/assets/plantilla/js/jquery.app.js',
-   'resources/assets/plantilla/js/sweetalert2.all.js'
+   'resources/assets/plantilla/js/sweetalert2.all.js',
+   'resources/assets/plantilla/js/Chartjs.js'
 ], 'public/js/plantilla.js').js(['resources/assets/js/app.js'],'public/js/app.js');
