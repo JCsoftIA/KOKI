@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2018 a las 04:02:37
+-- Tiempo de generación: 16-12-2018 a las 05:36:37
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.8
 
@@ -29,8 +29,6 @@ USE `koki`;
 --
 -- Estructura de tabla para la tabla `categorias`
 --
--- Creación: 11-12-2018 a las 17:16:48
---
 
 DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
@@ -55,8 +53,6 @@ INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `condicion`, `created_a
 --
 -- Estructura de tabla para la tabla `detalle_ingresos`
 --
--- Creación: 16-12-2018 a las 00:42:10
---
 
 DROP TABLE IF EXISTS `detalle_ingresos`;
 CREATE TABLE `detalle_ingresos` (
@@ -66,6 +62,14 @@ CREATE TABLE `detalle_ingresos` (
   `cantidad` int(11) NOT NULL,
   `precio` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_ingresos`
+--
+
+INSERT INTO `detalle_ingresos` (`id`, `idingreso`, `idproducto`, `cantidad`, `precio`) VALUES
+(11, 10, 2, 112, '2.00'),
+(12, 10, 1, 132, '3.00');
 
 --
 -- Disparadores `detalle_ingresos`
@@ -84,8 +88,6 @@ DELIMITER ;
 --
 -- Estructura de tabla para la tabla `detalle_ventas`
 --
--- Creación: 16-12-2018 a las 00:42:13
---
 
 DROP TABLE IF EXISTS `detalle_ventas`;
 CREATE TABLE `detalle_ventas` (
@@ -97,12 +99,31 @@ CREATE TABLE `detalle_ventas` (
   `descuento` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `detalle_ventas`
+--
+
+INSERT INTO `detalle_ventas` (`id`, `idventa`, `idproducto`, `cantidad`, `precio`, `descuento`) VALUES
+(1, 1, 2, 22, '4.00', '0.00'),
+(2, 1, 1, 2, '3.40', '0.00'),
+(3, 2, 1, 1, '3.40', '0.00');
+
+--
+-- Disparadores `detalle_ventas`
+--
+DROP TRIGGER IF EXISTS `tr_updStockVenta`;
+DELIMITER $$
+CREATE TRIGGER `tr_updStockVenta` AFTER INSERT ON `detalle_ventas` FOR EACH ROW BEGIN
+ UPDATE productos SET stock = stock - NEW.cantidad 
+ WHERE productos.id = NEW.idproducto;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `ingresos`
---
--- Creación: 16-12-2018 a las 00:42:06
 --
 
 DROP TABLE IF EXISTS `ingresos`;
@@ -126,14 +147,27 @@ CREATE TABLE `ingresos` (
 --
 
 INSERT INTO `ingresos` (`id`, `idproveedor`, `idusuario`, `tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha_hora`, `impuesto`, `total`, `estado`, `created_at`, `updated_at`) VALUES
-(1, 5, 1, 'Boleta', '1234', '123', '2018-12-15 00:00:00', '0.16', '23.00', 'Activo', NULL, NULL);
+(10, 5, 1, 'BOLETA', '123', '123', '2018-12-15 00:00:00', '0.18', '620.00', 'Registrado', '2018-12-16 09:49:32', '2018-12-16 09:49:32');
+
+--
+-- Disparadores `ingresos`
+--
+DROP TRIGGER IF EXISTS `tr_updStockIngresoAnular`;
+DELIMITER $$
+CREATE TRIGGER `tr_updStockIngresoAnular` AFTER UPDATE ON `ingresos` FOR EACH ROW BEGIN
+  UPDATE productos p
+    JOIN detalle_ingresos di
+      ON di.idproducto = p.id
+     AND di.idingreso = new.id
+     set p.stock = p.stock - di.cantidad;
+end
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `migrations`
---
--- Creación: 11-12-2018 a las 17:14:11
 --
 
 DROP TABLE IF EXISTS `migrations`;
@@ -166,8 +200,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 -- Estructura de tabla para la tabla `notifications`
 --
--- Creación: 16-12-2018 a las 01:43:50
---
 
 DROP TABLE IF EXISTS `notifications`;
 CREATE TABLE `notifications` (
@@ -181,12 +213,28 @@ CREATE TABLE `notifications` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
+('0cd28486-6ff7-464d-9e0b-59528ee52c40', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 4, '{\"datos\":{\"ventas\":{\"numero\":2,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 10:06:30', '2018-12-16 10:06:30'),
+('1f9b315c-91cb-4e9e-9d98-e3c7705a2d12', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 4, '{\"datos\":{\"ventas\":{\"numero\":1,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:50:57', '2018-12-16 09:50:57'),
+('231cb6dc-e181-4d5d-b31e-943fbfe14a61', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 4, '{\"datos\":{\"ventas\":{\"numero\":0,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:49:33', '2018-12-16 09:49:33'),
+('5a4cf815-92c2-4c95-ba76-1c261d3143eb', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 3, '{\"datos\":{\"ventas\":{\"numero\":1,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:50:57', '2018-12-16 09:50:57'),
+('9a937900-31cb-45c2-99d4-2949666718e1', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 3, '{\"datos\":{\"ventas\":{\"numero\":0,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:49:33', '2018-12-16 09:49:33'),
+('acaf2958-c1ba-477f-9b46-79599489bf1a', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 2, '{\"datos\":{\"ventas\":{\"numero\":1,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:50:57', '2018-12-16 09:50:57'),
+('c42b6782-6f69-4cdb-834b-9c11060ca545', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 1, '{\"datos\":{\"ventas\":{\"numero\":2,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 10:06:30', '2018-12-16 10:06:30'),
+('d988dd99-ef25-4e7a-9b7a-0876a4ebe559', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 2, '{\"datos\":{\"ventas\":{\"numero\":0,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:49:33', '2018-12-16 09:49:33'),
+('e74e9815-abf5-4c47-9349-a22610e89aee', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 1, '{\"datos\":{\"ventas\":{\"numero\":0,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:49:33', '2018-12-16 09:49:33'),
+('ef559cae-b58b-414d-9e0f-4d4536fc1eab', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 3, '{\"datos\":{\"ventas\":{\"numero\":2,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 10:06:30', '2018-12-16 10:06:30'),
+('f8678f94-a2a6-4fa7-b6c1-251857e1286f', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 1, '{\"datos\":{\"ventas\":{\"numero\":1,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 09:50:57', '2018-12-16 09:50:57'),
+('fc4c4700-5e46-4991-845e-b88da680db10', 'App\\Models\\Notifications\\NotifyAdmin', 'App\\Models\\User', 2, '{\"datos\":{\"ventas\":{\"numero\":2,\"msj\":\"Ventas\"},\"ingresos\":{\"numero\":1,\"msj\":\"Ingresos\"}}}', NULL, '2018-12-16 10:06:30', '2018-12-16 10:06:30');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `password_resets`
---
--- Creación: 11-12-2018 a las 17:16:47
 --
 
 DROP TABLE IF EXISTS `password_resets`;
@@ -200,8 +248,6 @@ CREATE TABLE `password_resets` (
 
 --
 -- Estructura de tabla para la tabla `personas`
---
--- Creación: 15-12-2018 a las 02:35:59
 --
 
 DROP TABLE IF EXISTS `personas`;
@@ -233,8 +279,6 @@ INSERT INTO `personas` (`id`, `nombre`, `tipo_documento`, `num_documento`, `dire
 --
 -- Estructura de tabla para la tabla `productos`
 --
--- Creación: 15-12-2018 a las 02:35:59
---
 
 DROP TABLE IF EXISTS `productos`;
 CREATE TABLE `productos` (
@@ -255,15 +299,13 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idcategoria`, `codigo`, `nombre`, `precio_venta`, `stock`, `descripcion`, `condicion`, `created_at`, `updated_at`) VALUES
-(1, 1, 'LECHE', 'LECHE GLORIA 500ML', '3.40', 100, 'LA LECHE GLORIA DE ALTO IMPACTO', 1, '2018-12-16 07:52:06', '2018-12-16 07:52:06'),
-(2, 2, 'LORO', 'CUADERNOS LORO A4', '3.30', 1000, 'UTILES ESCOLARES', 1, '2018-12-16 07:53:01', '2018-12-16 07:53:01');
+(1, 1, 'LECHE', 'LECHE GLORIA 500ML', '3.40', 231, 'LA LECHE GLORIA DE ALTO IMPACTO', 1, '2018-12-16 07:52:06', '2018-12-16 07:52:06'),
+(2, 2, 'LORO', 'CUADERNOS LORO A4', '3.30', 1112, 'UTILES ESCOLARES', 1, '2018-12-16 07:53:01', '2018-12-16 07:53:01');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `proveedores`
---
--- Creación: 15-12-2018 a las 02:36:01
 --
 
 DROP TABLE IF EXISTS `proveedores`;
@@ -284,8 +326,6 @@ INSERT INTO `proveedores` (`id`, `contacto`, `telefono_contacto`) VALUES
 
 --
 -- Estructura de tabla para la tabla `roles`
---
--- Creación: 15-12-2018 a las 02:35:59
 --
 
 DROP TABLE IF EXISTS `roles`;
@@ -311,8 +351,6 @@ INSERT INTO `roles` (`id`, `nombre`, `descripcion`, `condicion`) VALUES
 --
 -- Estructura de tabla para la tabla `users`
 --
--- Creación: 11-12-2018 a las 17:14:11
---
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -334,14 +372,12 @@ INSERT INTO `users` (`id`, `usuario`, `password`, `condicion`, `idrol`, `remembe
 (2, 'eliana', '$2y$10$I2weAKXc/AleHlCmb9c5MuidRTEosJu7dppY4FwDyq7jol0vrmN0e', 1, 2, 'drs', NULL, NULL),
 (3, 'jean', '$2y$10$QIRz49wkFV9SWQvoqShzUuTO.x50QJNKPcRMlV3WQMDrz0j8x88my', 1, 3, 'drs', NULL, NULL),
 (4, 'mario', '$2y$10$U1NZfO7NMTDjeAMgK3JDg.IeDMuXwrEJU9yz5LGB4wjLp6Z88mYiO', 1, 4, 'drs', NULL, NULL),
-(1, 'ruth', '$2y$10$SpKQa9GQGSw1Sp4GIdleperzNJbPMP3ZIWpg9dY.ZgvpjJ.G/3c0S', 1, 1, 'drs', NULL, NULL);
+(1, 'ruth', '$2y$10$SpKQa9GQGSw1Sp4GIdleperzNJbPMP3ZIWpg9dY.ZgvpjJ.G/3c0S', 1, 1, 'wjgVGy0Ec4LolutvZulUc5kbj2oWDQyHglIoUuNDsGqqKJn1l0vEfK8XO3Yy', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `ventas`
---
--- Creación: 16-12-2018 a las 00:42:11
 --
 
 DROP TABLE IF EXISTS `ventas`;
@@ -359,6 +395,14 @@ CREATE TABLE `ventas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `idcliente`, `idusuario`, `tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha_hora`, `impuesto`, `total`, `estado`, `created_at`, `updated_at`) VALUES
+(1, 5, 1, 'BOLETA', '123', '123', '2018-12-15 00:00:00', '0.18', '94.80', 'Anulado', '2018-12-16 09:50:57', '2018-12-16 10:05:47'),
+(2, 5, 1, 'BOLETA', '234', '234', '2018-12-15 00:00:00', '0.18', '3.40', 'Registrado', '2018-12-16 10:06:30', '2018-12-16 10:06:30');
 
 --
 -- Disparadores `ventas`
@@ -486,19 +530,19 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `detalle_ingresos`
 --
 ALTER TABLE `detalle_ingresos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_ventas`
 --
 ALTER TABLE `detalle_ventas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
@@ -528,7 +572,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
