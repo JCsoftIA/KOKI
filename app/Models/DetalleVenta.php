@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DetalleIngreso extends Model
+class DetalleVenta extends Model
 {
-    protected $table = 'detalle_ingresos';
+    protected $table = 'detalle_ventas';
     protected $fillable = [
-        'idingreso', 
+        'idventa', 
         'idproducto',
         'cantidad',
-        'precio'
+        'precio',
+        'descuento'
     ];
     public $timestamps = false;
-
 }

@@ -47,6 +47,7 @@ class ProveedorController extends Controller
             'personas' => $personas
         ];
     }
+
     public function selectProveedor(Request $request){
         if (!$request->ajax()) return redirect('/');
 
@@ -59,6 +60,7 @@ class ProveedorController extends Controller
 
         return ['proveedores' => $proveedores];
     }
+
     public function store(Request $request)
     {
         if (!$request->ajax()) return redirect('/');

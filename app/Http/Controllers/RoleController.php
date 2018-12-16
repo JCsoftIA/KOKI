@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Role;
 
 use Illuminate\Http\Request;
-use App\Models\Rol;
 
-class RolController extends Controller
+class RoleController extends Controller
 {
     public function index(Request $request)
     {
@@ -15,10 +15,10 @@ class RolController extends Controller
         $criterio = $request->criterio;
         
         if ($buscar==''){
-            $roles = Rol::orderBy('id', 'desc')->paginate(3);
+            $roles = Role::orderBy('id', 'desc')->paginate(3);
         }
         else{
-            $roles = Rol::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(3);
+            $roles = Role::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(3);
         }
         
 
@@ -34,12 +34,12 @@ class RolController extends Controller
             'roles' => $roles
         ];
     }
-    public function selectRol(Request $request)
-    {
-        $roles = Rol::where('condicion', '=', '1')
-        ->select('id','nombre')
-        ->orderBy('nombre', 'asc')->get();
 
+    public function selectRole(Request $request)
+    {
+        //if (!$request->ajax()) return redirect('/');
+        $roles = Role::where('condicion', '=', '1')->select('id','nombre')->orderBy('nombre', 'asc')->get();
         return ['roles' => $roles];
-    } 
+    }
+
 }

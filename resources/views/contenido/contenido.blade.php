@@ -4,10 +4,10 @@
 @if(Auth::check())
         @if (Auth::user()->idrol == 1)
         <template v-if="menu==0">
-            {{-- <dashboard></dashboard> --}}
+            <dashboard></dashboard>
         </template>
 
-        <template v-if="menu==1">            
+        <template v-if="menu==1">
             <categoria></categoria>
         </template>
 
@@ -24,7 +24,7 @@
         </template>
 
         <template v-if="menu==5">
-            {{-- <venta></venta> --}}
+            <venta></venta>
         </template>
 
         <template v-if="menu==6">
@@ -40,11 +40,11 @@
         </template>
 
         <template v-if="menu==9">
-            {{-- <consultaingreso></consultaingreso> --}}
+            <consultaingreso></consultaingreso>
         </template>
 
         <template v-if="menu==10">
-            {{-- <consultaventa></consultaventa> --}}
+            <consultaventa></consultaventa>
         </template>
 
         <template v-if="menu==11">
@@ -56,7 +56,7 @@
         </template>
         @elseif (Auth::user()->idrol == 2)
         <template v-if="menu==0">
-            {{-- <dashboard></dashboard> --}}
+            <dashboard></dashboard>
         </template>
         <template v-if="menu==5">
             <venta></venta>
@@ -85,7 +85,7 @@
         </template>
 
         <template v-if="menu==2">
-            <articulo></articulo>
+            <producto></producto>
         </template>
 
         <template v-if="menu==3">

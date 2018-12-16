@@ -24,6 +24,9 @@ class CreatePersonasTable extends Migration
             $table->timestamps();
         });
         DB::table('personas')->insert(array('id'=>'1','nombre'=>'ruth','tipo_documento'=>'DNI', 'num_documento'=>'12345678', 'direccion'=>'jr no se que', 'telefono'=>'8931978', 'email'=>'ruth@web.com'));
+        DB::table('personas')->insert(array('id'=>'2','nombre'=>'eliana','tipo_documento'=>'DNI', 'num_documento'=>'12345678', 'direccion'=>'jr no se que', 'telefono'=>'8931978', 'email'=>'ruth@web.com'));
+        DB::table('personas')->insert(array('id'=>'3','nombre'=>'jean','tipo_documento'=>'DNI', 'num_documento'=>'12345678', 'direccion'=>'jr no se que', 'telefono'=>'8931978', 'email'=>'ruth@web.com'));
+        DB::table('personas')->insert(array('id'=>'4','nombre'=>'mario','tipo_documento'=>'DNI', 'num_documento'=>'12345678', 'direccion'=>'jr no se que', 'telefono'=>'8931978', 'email'=>'ruth@web.com'));
     }
 
     /**
