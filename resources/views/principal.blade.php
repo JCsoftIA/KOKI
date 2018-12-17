@@ -67,19 +67,7 @@
                             </li>
                             <li>
                                 <!-- Notification -->
-                                <div class="notification-box">
-                                    <ul class="list-inline mb-0">
-                                        <li>
-                                            <a href="javascript:void(0);" class="right-bar-toggle">
-                                                <i class="mdi mdi-bell-outline noti-icon"></i>
-                                            </a>
-                                            <div class="noti-dot">
-                                                <span class="dot"></span>
-                                                <span class="pulse"></span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <notify :notifications="notifications"></notify>
                                 <!-- End Notification bar -->
                             </li>
                             {{-- pesta;a de login autor juan carlos --}}
@@ -162,7 +150,7 @@
             </div>
 
             <!-- Right Sidebar -->
-            <div class="side-bar right-bar">
+            <!-- <div class="side-bar right-bar">
                 <a href="javascript:void(0);" class="right-bar-toggle">
                     <i class="mdi mdi-close-circle-outline"></i>
                 </a>
@@ -232,7 +220,8 @@
 
                     </ul>
                 </div>
-            </div>
+            </div> -->
+            <notification :notifications="notifications"></notification>
             <!-- /Right-bar -->
 
         </div>

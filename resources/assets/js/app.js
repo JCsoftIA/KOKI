@@ -29,6 +29,7 @@ Vue.component('dashboard', require('./components/Dashboard.vue'));
 Vue.component('consultaingreso', require('./components/ConsultaIngreso.vue'));
 Vue.component('consultaventa', require('./components/ConsultaVenta.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
+Vue.component('notify', require('./components/Notify.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -42,6 +43,16 @@ Vue.component('notification', require('./components/Notification.vue'));
 const app = new Vue({
     el: '#vue',
     data:{
-        menu:0
+        menu:0,
+        notifications: []
+    },
+    created(){
+        let me = this;
+        axios.post('notification/get').then(function(response){
+            // console.log(response.data);
+            me.notifications=response.data;
+        }).catch(function(error){
+            console.log(error);
+        });
     }
 });

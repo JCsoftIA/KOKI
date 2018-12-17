@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Notifications;
+namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -30,7 +30,7 @@ class NotifyAdmin extends Notification
      */
     public function via($notifiable)
     {
-        return ['database','broadcast'];
+        return ['database','broadcast','mail'];
     }
 
     public function toDatabase($notifiable){
@@ -42,9 +42,9 @@ class NotifyAdmin extends Notification
     public function toBroadcast($notifiable) 
     {   
         return [ 
-            'data' => [ 
+            
                 'datos' => $this->GlobalDatos 
-            ]      
+               
         ]; 
     } 
 

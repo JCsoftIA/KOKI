@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use App\Models\Ingreso;
 use App\Models\DetalleIngreso;
 use App\Models\User; 
-use App\Models\Notifications\NotifyAdmin;
+use App\Notifications\NotifyAdmin;
 
 class IngresoController extends Controller
 {
