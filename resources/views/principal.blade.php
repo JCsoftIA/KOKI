@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>KOKI</title>
+        <title>KOKY</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -16,6 +16,7 @@
         {{-- <script src="js/modernizr.js"></script> --}}
         <link rel="stylesheet" href="">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <meta name="userId" content="{{ Auth::check() ? Auth::user()->id : ''}}">
     </head>
 
     <body>
@@ -67,10 +68,10 @@
                             </li>
                             <li>
                                 <!-- Notification -->
-                                <notify :notifications="notifications"></notify>
+                                <notification :notifications="notifications"></notification>
                                 <!-- End Notification bar -->
                             </li>
-                            {{-- pesta;a de login autor juan carlos --}}
+                            <!-- {{-- pesta;a de login autor juan carlos --}} -->
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
@@ -106,7 +107,7 @@
 
                                 </div>
                             </li>
-                            {{-- fin del seccion login Pesta;a jc --}}
+                            <!-- {{-- fin del seccion login Pesta;a jc --}} -->
                             
 
                         </ul>
@@ -150,7 +151,7 @@
             </div>
 
             <!-- Right Sidebar -->
-            <!-- <div class="side-bar right-bar">
+            <div class="side-bar right-bar">
                 <a href="javascript:void(0);" class="right-bar-toggle">
                     <i class="mdi mdi-close-circle-outline"></i>
                 </a>
@@ -220,8 +221,8 @@
 
                     </ul>
                 </div>
-            </div> -->
-            <notification :notifications="notifications"></notification>
+            </div>
+            <!-- <notification :notifications="notifications"></notification> -->
             <!-- /Right-bar -->
 
         </div>
@@ -236,7 +237,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        2018 © JuanCarlos.com
+                        2018 © MACROTIENDAS KOKY
                     </div>
                 </div>
             </div>

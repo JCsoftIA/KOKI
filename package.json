@@ -34,7 +34,7 @@
     "vue-barcode": "^1.1.0",
     "vue-select": "^2.5.1"
   },
-  "name": "koki",
+  "name": "KOKY",
   "description": "<p align=\"center\"><img src=\"https://laravel.com/assets/img/components/logo-laravel.svg\"></p>",
   "version": "1.0.0",
   "main": "webpack.mix.js",

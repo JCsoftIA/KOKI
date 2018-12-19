@@ -1,5 +1,5 @@
 <template>
-    <!-- <li class="nav-item d-md-down-none">
+    <li class="nav-item d-md-down-none">
         <a class="nav-link" href="#" data-toggle="dropdown">
             <i class="icon-bell"></i>
             <span class="badge badge-pill badge-danger">{{notifications.length}}</span>
@@ -24,8 +24,8 @@
                 <a><span>No tiene notificaciones</span></a> 
             </div>
         </div>
-    </li> -->
-    <div class="side-bar right-bar">
+    </li>
+    <!-- <div class="side-bar right-bar">
         <a href="javascript:void(0);" class="right-bar-toggle">
             <i class="mdi mdi-close-circle-outline"></i>
         </a>
@@ -33,15 +33,15 @@
         <div class="notification-list nicescroll">
             <ul class="list-group list-no-border user-list">
                 
-                <li v-for="item in notifications" :key="item.id" class="list-group-item active">
+                <li v-for="item in listar" :key="item.id" class="list-group-item active">
                     
                     <a href="#" class="user-list-item">
                         <div class="icon bg-info">
                             <i class="mdi mdi-comment"></i>
                         </div>
                         <div class="user-desc">
-                            <span class="name">{{(item.data).datos.ingresos.msj}}</span>
-                            <span class="name">{{(item.data).datos.ingresos.numero}}</span>
+                            <span class="name">{{item.ingresos.msj}}</span>
+                            <span class="name">{{item.ingresos.numero}}</span>
                             <span class="time">{{item.updated_at}}</span>
                         </div>
                     </a>
@@ -50,28 +50,30 @@
                             <i class="mdi mdi-comment"></i>
                         </div>
                         <div class="user-desc">
-                            <span class="name">{{(item.data).datos.ventas.msj}}</span>
-                            <span class="name">{{(item.data).datos.ventas.numero}}</span>
+                            <span class="name">{{item.ventas.msj}}</span>
+                            <span class="name">{{item.ventas.numero}}</span>
                             <span class="time">{{item.updated_at}}</span>
                         </div>
                     </a>
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 </template>
 <script>
 export default {     
 	props : ['notifications'],
     data (){         
         return {
-            // arrayNotifications:[]
+            arrayNotifications:[]
+
         } 
     },
     computed:{
         listar: function()  {
-            // return this.notifications[0];
+            // return Object.values(this.notifications);
              this.arrayNotifications = Object.values(this.notifications[0]);
+             console.log('el array '+this.arrayNotifications);
             if (this.notifications == '') {
                     return this.arrayNotifications = []; 
             } else {
@@ -88,5 +90,6 @@ export default {
             }
         }
     }
+    
 }
 </script>

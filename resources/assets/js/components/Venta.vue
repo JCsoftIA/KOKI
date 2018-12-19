@@ -563,7 +563,12 @@
                 });
             },
             pdfVenta(id){
-                window.open('http://localhost:8000/venta/pdf/'+ id + ',' + '_blank');
+                try {
+                    window.open('http://localhost:8000/venta/pdf/'+ id + ',' + '_blank');
+                } catch (error) {
+                    console.log(error);
+                }
+                
             },
             cambiarPagina(page,buscar,criterio){
                 let me = this;

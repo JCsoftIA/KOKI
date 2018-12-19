@@ -9,7 +9,7 @@
   <meta name="author" content="JuanCarlos.com">
   <meta name="keyword" content="Sistema ventas , Sistema compras ">
 
-  <title>Sistema Ventas KOKI</title>
+  <title>Sistema Ventas KOKY</title>
 
   <link href="css/plantilla.css" rel="stylesheet">
 

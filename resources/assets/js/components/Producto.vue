@@ -31,6 +31,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="table-responsive">
                         <table class="table table-bordered table-striped table-sm">
                             <thead>
                                 <tr>
@@ -79,6 +80,7 @@
                                 </tr>                                
                             </tbody>
                         </table>
+                        </div>
                         <nav>
                             <ul class="pagination">
                                 <li class="page-item" v-if="pagination.current_page > 1">
@@ -253,7 +255,12 @@
                 });
             },
             cargarPdf(){
-                window.open('http://localhost:8000/producto/listarPdf','_blank');
+                try {
+                    window.open('http://localhost:8000/producto/listarPdf','_blank');
+                } catch (error) {
+                    console.log(error);
+                }
+                
             },
             selectCategoria(){
                 let me=this;

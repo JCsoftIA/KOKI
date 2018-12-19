@@ -31,7 +31,7 @@
           <div class="card text-white bg-dark py-5 d-md-down-none" style="width:44%">
             <div class="card-body text-center">
               <div>
-                <h2>Sistema de Ventas Koki</h2>
+                <h2>Sistema de Ventas KOKY</h2>
                 <p>
                     <ul>
                         <li class = " text-left list-unstyled">Ruth......Admin</li>

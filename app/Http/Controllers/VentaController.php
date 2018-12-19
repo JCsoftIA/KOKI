@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use App\Models\Venta;
 use App\Models\DetalleVenta;
 use App\Models\User;
-use App\Models\Notifications\NotifyAdmin;
+use App\Notifications\NotifyAdmin;
 
 class VentaController extends Controller
 {

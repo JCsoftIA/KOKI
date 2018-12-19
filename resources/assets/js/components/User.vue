@@ -30,6 +30,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="table-responsive">
                         <table class="table table-bordered table-striped table-sm">
                             <thead>
                                 <tr>
@@ -72,6 +73,7 @@
                                 </tr>                                
                             </tbody>
                         </table>
+                        </div>
                         <nav>
                             <ul class="pagination">
                                 <li class="page-item" v-if="pagination.current_page > 1">

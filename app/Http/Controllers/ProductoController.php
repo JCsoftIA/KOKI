@@ -17,13 +17,13 @@ class ProductoController extends Controller
         if ($buscar==''){
             $productos = Producto::join('categorias','productos.idcategoria','=','categorias.id')
             ->select('productos.id','productos.idcategoria','productos.codigo','productos.nombre','categorias.nombre as nombre_categoria','productos.precio_venta','productos.stock','productos.descripcion','productos.condicion')
-            ->orderBy('productos.id', 'desc')->paginate(3);
+            ->orderBy('productos.id', 'desc')->paginate(5);
         }
         else{
             $productos = Producto::join('categorias','productos.idcategoria','=','categorias.id')
             ->select('productos.id','productos.idcategoria','productos.codigo','productos.nombre','categorias.nombre as nombre_categoria','productos.precio_venta','productos.stock','productos.descripcion','productos.condicion')
             ->where('productos.'.$criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('productos.id', 'desc')->paginate(3);
+            ->orderBy('productos.id', 'desc')->paginate(5);
         }
         
 

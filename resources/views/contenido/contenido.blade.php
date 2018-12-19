@@ -105,6 +105,28 @@
         <template v-if="menu==12">
             <h1>Acerca de</h1>
         </template>
+        @elseif (Auth::user()->idrol == 4)
+        <template v-if="menu==0">
+            <dashboard></dashboard>
+        </template>
+
+        <template v-if="menu==5">
+            <venta></venta>
+        </template>
+
+        <template v-if="menu==10">
+            <consultaventa></consultaventa>
+        </template>
+
+        <template v-if="menu==11">
+            <h1>Ayuda</h1>
+        </template>
+
+        <template v-if="menu==12">
+            <h1>Acerca de</h1>
+        </template>
+       
+
         @else
 
         @endif

@@ -43,7 +43,9 @@ class NotifyAdmin extends Notification
     {   
         return [ 
             
+            'data' => [
                 'datos' => $this->GlobalDatos 
+            ]
                
         ]; 
     } 
